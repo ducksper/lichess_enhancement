@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview - Lichess enhancement</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <center>
+        <h1><img src='../logo/lichess_chess_logo.png' width="300"/></h1>
+        <div style="font-size: 1.3em;font-style:italic">Unofficial lichess enhancement / <a href="https://github.com/ducksper/lichess_overhaul">Github</a></div>
+
+        <h2>Preview style pieces/boards</h2>
+    </center>
+
+        <br />
+
+        <div class="list">
+            <div class="list_p">
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">1. </span>
+                        <span class="name">8 Bits</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/8_bit/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/8_bit/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/8_bit/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/8_bit/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/8_bit/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">2. </span>
+                        <span class="name">Alpha</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/alpha/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/alpha/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/alpha/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/alpha/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/alpha/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">3. </span>
+                        <span class="name">Bases</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/bases/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/bases/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/bases/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/bases/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/bases/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <!--<div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">4. </span>
+                        <span class="name">Blindfold</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/blindfold/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/blindfold/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/blindfold/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/blindfold/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/blindfold/bk.png" alt="Black king" />
+                    </div>
+                </div>-->
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">4. </span>
+                        <span class="name">Book</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/book/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/book/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/book/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/book/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/book/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">5. </span>
+                        <span class="name">Bubblegum</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/bubblegum/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/bubblegum/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/bubblegum/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/bubblegum/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/bubblegum/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">6. </span>
+                        <span class="name">Cases</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/cases/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/cases/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/cases/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/cases/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/cases/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">7. </span>
+                        <span class="name">Classic</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/classic/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/classic/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/classic/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/classic/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/classic/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">8. </span>
+                        <span class="name">Club</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/club/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/club/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/club/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/club/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/club/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">9. </span>
+                        <span class="name">Condal</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/condal/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/condal/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/condal/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/condal/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/condal/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">10. </span>
+                        <span class="name">Dash</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/dash/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/dash/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/dash/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/dash/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/dash/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">11. </span>
+                        <span class="name">Game room</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/game_room/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/game_room/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/game_room/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/game_room/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/game_room/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">12. </span>
+                        <span class="name">Glass</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/glass/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/glass/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/glass/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/glass/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/glass/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">13. </span>
+                        <span class="name">Gothic</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/gothic/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/gothic/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/gothic/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/gothic/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/gothic/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">14. </span>
+                        <span class="name">Graffiti</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/graffiti/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/graffiti/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/graffiti/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/graffiti/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/graffiti/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">15. </span>
+                        <span class="name">Icy Sea</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/icy_sea/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/icy_sea/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/icy_sea/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/icy_sea/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/icy_sea/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">16. </span>
+                        <span class="name">Light</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/light/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/light/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/light/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/light/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/light/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">17. </span>
+                        <span class="name">Lolz</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/lolz/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/lolz/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/lolz/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/lolz/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/lolz/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">18. </span>
+                        <span class="name">Marble</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/marble/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/marble/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/marble/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/marble/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/marble/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">19. </span>
+                        <span class="name">Maya</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/maya/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/maya/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/maya/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/maya/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/maya/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">20. </span>
+                        <span class="name">Metal</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/metal/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/metal/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/metal/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/metal/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/metal/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">21. </span>
+                        <span class="name">Modern</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/modern/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/modern/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/modern/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/modern/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/modern/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">22. </span>
+                        <span class="name">Nature</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/nature/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/nature/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/nature/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/nature/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/nature/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">23. </span>
+                        <span class="name">Neon</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/neon/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/neon/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/neon/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/neon/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/neon/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">24. </span>
+                        <span class="name">Neo</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/neo/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/neo/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/neo/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/neo/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/neo/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">25. </span>
+                        <span class="name">Neo-Wood</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/neo_wood/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/neo_wood/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/neo_wood/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/neo_wood/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/neo_wood/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">26. </span>
+                        <span class="name">Newspaper</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/newspaper/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/newspaper/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/newspaper/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/newspaper/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/newspaper/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">27. </span>
+                        <span class="name">Ocean</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/ocean/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/ocean/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/ocean/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/ocean/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/ocean/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">28. </span>
+                        <span class="name">Sky</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/sky/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/sky/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/sky/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/sky/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/sky/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">29. </span>
+                        <span class="name">Space</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/space/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/space/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/space/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/space/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/space/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">30. </span>
+                        <span class="name">Tigers</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/tigers/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/tigers/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/tigers/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/tigers/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/tigers/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">31. </span>
+                        <span class="name">Tournament</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/tournament/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/tournament/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/tournament/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/tournament/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/tournament/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">32. </span>
+                        <span class="name">Vintage</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/vintage/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/vintage/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/vintage/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/vintage/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/vintage/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">33. </span>
+                        <span class="name">Wood</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/wood/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/wood/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/wood/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/wood/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/wood/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">34. </span>
+                        <span class="name">3D - Wood</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/3d_wood/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/3d_wood/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/3d_wood/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/3d_wood/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/3d_wood/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">35. </span>
+                        <span class="name">3D - Staunton</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/3d_staunton/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/3d_staunton/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/3d_staunton/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/3d_staunton/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/3d_staunton/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">36. </span>
+                        <span class="name">3D - Plastic</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/3d_plastic/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/3d_plastic/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/3d_plastic/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/3d_plastic/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/3d_plastic/bk.png" alt="Black king" />
+                    </div>
+                </div>
+                <div class="style_p">
+                    <div class="h_pre">
+                        <span class="num">37. </span>
+                        <span class="name">3D - Chesskid</span>
+                    </div>
+                    <div class="images">
+                        <img class="piece_url" src="../pieces/3d_chesskid/br.png" alt="Black rook" />
+                        <img class="piece_url" src="../pieces/3d_chesskid/bk.png" alt="Black knight" />
+                        <img class="piece_url" src="../pieces/3d_chesskid/bb.png" alt="Black bishop" />
+                        <img class="piece_url" src="../pieces/3d_chesskid/bq.png" alt="Black queen" />
+                        <img class="piece_url" src="../pieces/3d_chesskid/bk.png" alt="Black king" />
+                    </div>
+                </div>
+            </div>
+            <div class="list_b1">
+                <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">1. </span>
+                            <span class="name">8 Bits</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/8_bit.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">2. </span>
+                            <span class="name">Bases</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/bases.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">3. </span>
+                            <span class="name">Blue</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/blue.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">4. </span>
+                            <span class="name">Brown</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/brown.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">5. </span>
+                            <span class="name">Bubblegum</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/bubblegum.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">6. </span>
+                            <span class="name">Burled Wood</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/burled_wood.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">7. </span>
+                            <span class="name">Dark Wood</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/dark_wood.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">8. </span>
+                            <span class="name">Dash</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/dash.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">9. </span>
+                            <span class="name">Glass</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/glass.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">10. </span>
+                            <span class="name">Graffiti</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/graffiti.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">11. </span>
+                            <span class="name">Green</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/green.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">12. </span>
+                            <span class="name">Icy Sea</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/icy_sea.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">13. </span>
+                            <span class="name">Light</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/light.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">14. </span>
+                            <span class="name">Lolz</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/lolz.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">15. </span>
+                            <span class="name">Marble</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/marble.png" alt="Board">
+                        </div>
+                    </div>
+            </div>
+
+            <div class="list_b2">
+
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">16. </span>
+                            <span class="name">Metal</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/metal.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">17. </span>
+                            <span class="name">Neon</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/neon.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">18. </span>
+                            <span class="name">Newpaper</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/newpaper.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">19. </span>
+                            <span class="name">Orange</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/orange.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">20. </span>
+                            <span class="name">Overlay</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/overlay.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">21. </span>
+                            <span class="name">Parchment</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/parchment.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">22. </span>
+                            <span class="name">Purple</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/purple.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">23. </span>
+                            <span class="name">Red</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/red.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">24. </span>
+                            <span class="name">Sand</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/sand.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">25. </span>
+                            <span class="name">Sky</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/sky.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">26. </span>
+                            <span class="name">Stone</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/stone.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">27. </span>
+                            <span class="name">Tan</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/tan.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">28. </span>
+                            <span class="name">Tournament</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/tournament.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">29. </span>
+                            <span class="name">Translucent</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/translucent.png" alt="Board">
+                        </div>
+                    </div>
+                    <div class="style_b">
+                        <div class="h_pre">
+                            <span class="num">30. </span>
+                            <span class="name">Walnut</span>
+                        </div>
+                        <div class="images">
+                            <img class="board_img" src="../boards/walnut.png" alt="Board">
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+        <br />
+</body>
+</html>
