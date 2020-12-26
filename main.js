@@ -64,17 +64,17 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     })
 })
 
-function ghostActivateState() { 
+/*function ghostActivateState() { 
     chrome.storage.sync.get('desactivateGhostsCustomStyle', function(data) {
         if (!data['desactivateGhostsCustomStyle']) {
             return false
         } else return true
     })
-}
+}*/
 
 document.addEventListener('mousedown', function() {
     chrome.storage.sync.get('pieces', function(data) {
-        if ((data['pieces']) && (ghostActivateState())) {
+        if ((data['pieces'])) {
             Pieces.chooseStyleAndApply(data['pieces'])
         }
     })

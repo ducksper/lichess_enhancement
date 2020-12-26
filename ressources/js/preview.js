@@ -6,6 +6,6 @@ document.querySelector('.preview').addEventListener('click', function() {
 
 document.querySelector('.github').addEventListener('click', function() {
     chrome.tabs.create({
-        url: 'https://github.com/ducksper/lichess_overhaul'
+        url: 'https://github.com/ducksper/lichess_enhancement'
     })
 }, false)
