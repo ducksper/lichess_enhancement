@@ -1,6 +1,6 @@
 var Boards = {
     replaceBackgroundImage: function(board_url) {
-        console.log('Replacing board')
+        
     
         board = document.querySelectorAll('cg-board')
         
@@ -17,7 +17,7 @@ var Boards = {
     },
 
     greatReset: function() {
-        console.log('Reset board to Lichess')
+        
     
         board = document.querySelectorAll('cg-board')
     

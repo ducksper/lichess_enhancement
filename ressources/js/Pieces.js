@@ -1,6 +1,6 @@
 var Pieces = {
     replaceBackgroundImage: function(b_rook_url, b_knight_url, b_bishop_url, b_queen_url, b_king_url, b_pawn_url, w_rook_url, w_knight_url, w_bishop_url, w_queen_url, w_king_url, w_pawn_url) {
-        console.log('Replacing pieces')
+        
         b_rook = document.querySelectorAll('piece.black.rook')
         b_knight = document.querySelectorAll('piece.black.knight')
         b_bishop = document.querySelectorAll('piece.black.bishop')
@@ -66,7 +66,7 @@ var Pieces = {
 
     refresh: function(b_rook_url, b_knight_url, b_bishop_url, b_queen_url, b_king_url, b_pawn_url, w_rook_url, w_knight_url, w_bishop_url, w_queen_url, w_king_url, w_pawn_url) {
         
-        console.log('Watching for changes in pieces')
+        
         
         //BLACK
         document.arrive('piece.black.pawn', function() {
@@ -146,7 +146,7 @@ var Pieces = {
     },
 
     greatReset: function() {
-        console.log('Request reset pieces to Lichess default params')
+        
         b_rook = document.querySelectorAll('piece.black.rook')
         b_knight = document.querySelectorAll('piece.black.knight')
         b_bishop = document.querySelectorAll('piece.black.bishop')
@@ -208,7 +208,7 @@ var Pieces = {
         for (var i = 0; i < w_pawn.length; i++) {
             w_pawn[i].style.backgroundImage = null
         }
-        console.log('Reset pieces to Lichess default params: success')
+        
     },
 
     fromIDtoNameStyle: function(style_id) {

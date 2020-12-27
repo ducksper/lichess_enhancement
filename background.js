@@ -5,7 +5,7 @@ chrome.runtime.onInstalled.addListener(function() {
         'board': 'green',
         'desactivateGhostsCustomStyle': false
     }, function() {
-        console.log('pieces: Neo \bboard: Green')
+        
     })
 })
 

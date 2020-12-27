@@ -5,8 +5,8 @@ lugar_img.onclick = function() {
     chosenOne = Math.floor(Math.random() * 13)
     document.getElementById('button-meme').remove()
 
-    console.log(chosenOne)
-    console.log(memes[chosenOne])
+    
+    
 
     var img_url = document.createElement("img");
     img_url.src = "../meme/" + memes[chosenOne]

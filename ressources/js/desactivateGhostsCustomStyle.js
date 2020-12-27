@@ -8,7 +8,7 @@ desactivateGhostsCustomStyle.onchange = function(element) {
     let value = this.checked
 
     chrome.storage.sync.set({'desactivateGhostsCustomStyle': value}, function() {
-        console.log('New value for checkbox: ' + value)
+        
     })
 
     chrome.tabs.query({

@@ -5,7 +5,7 @@ chrome.storage.sync.get('board', function(data) {
 
     board_select.value = data['board']
 
-    console.log(data['board'] + ' value from storage set for HTMLselect board')
+    
 })
 
 //UPDATE STORAGE WITH NEW VALUE AND SEND A SIGNAL TO MAIN SCRIPT
@@ -13,7 +13,7 @@ board_select.onchange = function(element) {
     let value = this.value
 
     chrome.storage.sync.set({'board': value}, function() {
-        console.log('New value for board request by user: ' + value)
+        
     })
 
     //Note: sending of pieces_init is useless for main script
