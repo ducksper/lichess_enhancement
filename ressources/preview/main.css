@@ -9,22 +9,88 @@ body {
 
 .list {
     display: grid;
-    grid-template-columns: auto 300px 200px 200px auto
+    grid-template-columns: auto 300px 200px 200px 10px 300px 10px 300px 200px auto;
 }
 
-.list_p {
+.logo_chesscom {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.logo_chessfoundry {
+    grid-column: 6;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    grid-row: 1;
+}
+
+.avatar_ka {
+    grid-column: 8;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    grid-row: 1;
+}
+
+.list_p_chessfoundry {
+    border-radius: 5px;
+    grid-column: 6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list_p_chess {
+    border-radius: 5px;
     grid-column: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.list_b1 {
+.list_p_ka {
+    border-radius: 5px;
+    grid-column: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list_b1_chess {
+    border-radius: 5px;
     grid-column: 3;
 }
 
-.list_b2 {
+.list_b2_chess {
+    border-radius: 5px;
     grid-column: 4;
+}
+
+.list_p_others {
+    border-radius: 5px;
+    grid-column: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list_b_others {
+    border-radius: 5px;
+    grid-column: 9;
+}
+
+.others_title {
+    font-size: 3em;
+    grid-column-start: 8;
+    grid-column-end: 10;
+    grid-row: 1;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
 }
 
 .board_flex {
@@ -45,15 +111,16 @@ body {
 .style_p {
     background: #a88865;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .style_b {
     background: #a88865;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
     padding: 5px;
-    margin-bottom: 10px;
     margin-left: 10px;
     margin-right: 10px;
     min-width: 150px;

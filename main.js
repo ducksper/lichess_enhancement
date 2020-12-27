@@ -19,7 +19,7 @@ document.querySelector('html').style.fontfamily = '-apple-system,BlinkMacSystemF
 chrome.storage.sync.get('pieces', function(data) {
     console.log('Get pieces type from storage...')
     
-    if (data['pieces'] == false) {
+    if (data['pieces'] == 'none_pieces') {
         console.log('Lichess default piece/no change')
     } else {
         Pieces.chooseStyleAndApply(data['pieces'])
@@ -30,7 +30,7 @@ chrome.storage.sync.get('pieces', function(data) {
 chrome.storage.sync.get('board', function(data) {
     console.log('Get board type from storage...')
 
-    if (data['board'] == false) {
+    if (data['board'] == 'none_board') {
         console.log('Lichess default board/no change')
     } else {
         Boards.chooseStyleAndApply(data['board'])
@@ -42,7 +42,7 @@ chrome.storage.sync.get('board', function(data) {
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     chrome.storage.sync.get('pieces', function(data) {
         
-        if (data['pieces'] == 0) {
+        if (data['pieces'] == 'none_pieces') {
             console.log('Request lichess overhaul pieces OFF')
             Pieces.unbindPieces()
             Pieces.greatReset()
@@ -55,7 +55,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     
     chrome.storage.sync.get('board', function(data) {
         
-        if (data['board'] == 0) {
+        if (data['board'] == 'none_board') {
             console.log('Request lichess default board/no change')
             Boards.greatReset()
         } else {
@@ -74,7 +74,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
 document.addEventListener('mousedown', function() {
     chrome.storage.sync.get('pieces', function(data) {
-        if ((data['pieces'])) {
+        if (data['pieces'] != 'none_pieces') {
             Pieces.chooseStyleAndApply(data['pieces'])
         }
     })

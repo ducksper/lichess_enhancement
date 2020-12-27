@@ -293,21 +293,57 @@ var Pieces = {
     chooseStyleAndApply: function(style_id) {
         //style_name = this.fromIDtoNameStyle(style_id)
         style_name = style_id
-        
-        var b_rook_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/br.png')
-        var b_knight_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/bn.png')
-        var b_bishop_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/bb.png')
-        var b_queen_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/bq.png')
-        var b_king_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/bk.png')
-        var b_pawn_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/bp.png')
-        
-        var w_rook_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wr.png')
-        var w_knight_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wn.png')
-        var w_bishop_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wb.png')
-        var w_queen_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wq.png')
-        var w_king_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wk.png')
-        var w_pawn_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wp.png')
 
+        switch (style_name) {
+            case 'pony':
+                var b_rook_url = chrome.runtime.getURL('ressources/pieces/pony/br.png')
+                var b_knight_url = chrome.runtime.getURL('ressources/pieces/pony/bn.png')
+                var b_bishop_url = chrome.runtime.getURL('ressources/pieces/pony/bb.png')
+                var b_queen_url = chrome.runtime.getURL('ressources/pieces/pony/bq.gif')
+                var b_king_url = chrome.runtime.getURL('ressources/pieces/pony/bk.png')
+                var b_pawn_url = chrome.runtime.getURL('ressources/pieces/pony/bp.png')
+                
+                var w_rook_url = chrome.runtime.getURL('ressources/pieces/pony/wr.png')
+                var w_knight_url = chrome.runtime.getURL('ressources/pieces/pony/wn.png')
+                var w_bishop_url = chrome.runtime.getURL('ressources/pieces/pony/wb.png')
+                var w_queen_url = chrome.runtime.getURL('ressources/pieces/pony/wq.gif')
+                var w_king_url = chrome.runtime.getURL('ressources/pieces/pony/wk.png')
+                var w_pawn_url = chrome.runtime.getURL('ressources/pieces/pony/wp.png')
+                break;
+            
+            case 'random':
+                var b_rook_url = chrome.runtime.getURL('ressources/pieces/random/br.gif')
+                var b_knight_url = chrome.runtime.getURL('ressources/pieces/random/bn.gif')
+                var b_bishop_url = chrome.runtime.getURL('ressources/pieces/random/bb.gif')
+                var b_queen_url = chrome.runtime.getURL('ressources/pieces/random/bq.gif')
+                var b_king_url = chrome.runtime.getURL('ressources/pieces/random/bk.gif')
+                var b_pawn_url = chrome.runtime.getURL('ressources/pieces/random/bp.gif')
+                
+                var w_rook_url = chrome.runtime.getURL('ressources/pieces/random/wr.gif')
+                var w_knight_url = chrome.runtime.getURL('ressources/pieces/random/wn.gif')
+                var w_bishop_url = chrome.runtime.getURL('ressources/pieces/random/wb.gif')
+                var w_queen_url = chrome.runtime.getURL('ressources/pieces/random/wq.gif')
+                var w_king_url = chrome.runtime.getURL('ressources/pieces/random/wk.gif')
+                var w_pawn_url = chrome.runtime.getURL('ressources/pieces/random/wp.gif')
+                break;
+        
+            default:
+                var b_rook_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/br.png')
+                var b_knight_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/bn.png')
+                var b_bishop_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/bb.png')
+                var b_queen_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/bq.png')
+                var b_king_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/bk.png')
+                var b_pawn_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/bp.png')
+                
+                var w_rook_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wr.png')
+                var w_knight_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wn.png')
+                var w_bishop_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wb.png')
+                var w_queen_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wq.png')
+                var w_king_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wk.png')
+                var w_pawn_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/wp.png')
+                break;
+        }
+        
         this.replaceBackgroundImage(b_rook_url, b_knight_url, b_bishop_url, b_queen_url, b_king_url, b_pawn_url, w_rook_url, w_knight_url, w_bishop_url, w_queen_url, w_king_url, w_pawn_url)
 
         this.refresh(b_rook_url, b_knight_url, b_bishop_url, b_queen_url, b_king_url, b_pawn_url, w_rook_url, w_knight_url, w_bishop_url, w_queen_url, w_king_url, w_pawn_url)
