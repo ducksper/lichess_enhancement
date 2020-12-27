@@ -1,8 +1,8 @@
 //Set up default values in storage during installation
 chrome.runtime.onInstalled.addListener(function() {
     chrome.storage.sync.set({
-        'pieces': 24,
-        'board': 11,
+        'pieces': 'neo',
+        'board': 'green',
         'desactivateGhostsCustomStyle': false
     }, function() {
         console.log('pieces: Neo \bboard: Green')

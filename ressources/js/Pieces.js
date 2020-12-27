@@ -291,7 +291,8 @@ var Pieces = {
     },
 
     chooseStyleAndApply: function(style_id) {
-        style_name = this.fromIDtoNameStyle(style_id)
+        //style_name = this.fromIDtoNameStyle(style_id)
+        style_name = style_id
         
         var b_rook_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/br.png')
         var b_knight_url = chrome.runtime.getURL('ressources/pieces/' + style_name + '/bn.png')

@@ -94,7 +94,8 @@ var Boards = {
 
     chooseStyleAndApply: function(style_id) {
 
-        style_name = this.fromIDtoNameStyle(style_id)
+        //style_name = this.fromIDtoNameStyle(style_id)
+        style_name = style_id
 
         var board = chrome.runtime.getURL('ressources/boards/' + style_name + '.png')
         

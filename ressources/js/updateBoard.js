@@ -3,14 +3,14 @@ var board_select = document.getElementById('board_select')
 //UPDATE <OPTION> WITH VALUE IN STORAGE
 chrome.storage.sync.get('board', function(data) {
 
-    board_select.selectedIndex = data['board']
+    board_select.value = data['board']
 
     console.log(data['board'] + ' value from storage set for HTMLselect board')
 })
 
 //UPDATE STORAGE WITH NEW VALUE AND SEND A SIGNAL TO MAIN SCRIPT
 board_select.onchange = function(element) {
-    let value = this.selectedIndex
+    let value = this.value
 
     chrome.storage.sync.set({'board': value}, function() {
         console.log('New value for board request by user: ' + value)
