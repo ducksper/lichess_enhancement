@@ -19,16 +19,14 @@ document.querySelector('html').style.fontfamily = '-apple-system,BlinkMacSystemF
 chrome.storage.sync.get('pieces', function(data) {
     
     
-    if (!data['pieces'] == 'none_pieces') {
+    if (data['pieces'] != 'none_pieces') {
         Pieces.chooseStyleAndApply(data['pieces'])
     }
 })
 
 //GET BOARD FROM STORAGE
 chrome.storage.sync.get('board', function(data) {
-    
-
-    if (!data['board'] == 'none_board') {
+    if (data['board'] != 'none_board') {
         Boards.chooseStyleAndApply(data['board'])
     }    
 })
