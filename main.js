@@ -19,9 +19,7 @@ document.querySelector('html').style.fontfamily = '-apple-system,BlinkMacSystemF
 chrome.storage.sync.get('pieces', function(data) {
     
     
-    if (data['pieces'] == 'none_pieces') {
-        
-    } else {
+    if (!data['pieces'] == 'none_pieces') {
         Pieces.chooseStyleAndApply(data['pieces'])
     }
 })
@@ -30,9 +28,7 @@ chrome.storage.sync.get('pieces', function(data) {
 chrome.storage.sync.get('board', function(data) {
     
 
-    if (data['board'] == 'none_board') {
-        
-    } else {
+    if (!data['board'] == 'none_board') {
         Boards.chooseStyleAndApply(data['board'])
     }    
 })
@@ -41,9 +37,7 @@ chrome.storage.sync.get('board', function(data) {
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     chrome.storage.sync.get('pieces', function(data) {
-        
         if (data['pieces'] == 'none_pieces') {
-            
             Pieces.unbindPieces()
             Pieces.greatReset()
         } else {
@@ -56,7 +50,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     chrome.storage.sync.get('board', function(data) {
         
         if (data['board'] == 'none_board') {
-            
             Boards.greatReset()
         } else {
             Boards.chooseStyleAndApply(data['board']) 
