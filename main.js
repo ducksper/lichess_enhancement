@@ -11,7 +11,7 @@ var lichess_chess_logo_url = chrome.runtime.getURL('ressources/logo/chesscom_log
 /*document.querySelector("#top > div.site-title-nav > h1").innerHTML = "<a href='/'><img width=170 src=" + lichess_chess_logo_url + " alt='logo lichess'/></a>"*/
 
 site_title = document.querySelector('.site-title')//.remove()
-document.querySelector('a').remove()
+document.querySelector('.site-title a').remove()
 site_title_nav = document.querySelector('.site-title-nav')
 
 var img_url = document.createElement("img");
