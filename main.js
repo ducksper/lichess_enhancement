@@ -6,9 +6,9 @@ var styleConsoleLog = [
     'line-height: 50px'
 ]
 
+/*
 //LOGO
 var lichess_chess_logo_url = chrome.runtime.getURL('ressources/logo/chesscom_logo_better.png')
-/*document.querySelector("#top > div.site-title-nav > h1").innerHTML = "<a href='/'><img width=170 src=" + lichess_chess_logo_url + " alt='logo lichess'/></a>"*/
 
 site_title = document.querySelector('.site-title')//.remove()
 document.querySelector('.site-title a').remove()
@@ -23,6 +23,7 @@ a_url.href = '/'
 
 site_title.appendChild(a_url)
 a_url.appendChild(img_url)
+*/
 
 //FONT
 document.querySelector('html').style.fontfamily = '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif'
