@@ -38,6 +38,9 @@ tournament
 vintage
 wood
 
+**u/Paradile13** https://www.reddit.com/user/Paradile13/
+Doge
+
 **PureBlue** https://userstyles.org/users/374749
 christmas
 royale
