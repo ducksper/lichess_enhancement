@@ -1,4 +1,4 @@
-memes = ['1789.jpg', 'arrogant.jpg', 'averagelichesser.png', 'chess24.jpg', 'kruger.png', 'magnus.png', 'oldmemories.jpg', 'queensgambit.png', 'simp.png', 'supremacy.png', 'Troie.jpg', 'trump.jpg', 'hot.jpg', ]
+memes = ['1789.jpg', 'arrogant.jpg', 'chess24.jpg', 'kruger.png', 'magnus.png', 'queensgambit.png', 'simp.png', 'supremacy.png', 'Troie.jpg', 'trump.jpg', 'hot.jpg', ]
 
 lugar_img = document.getElementById('img-meme')
 lugar_img.onclick = function() {
