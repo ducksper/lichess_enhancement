@@ -2,7 +2,7 @@
 
     "manifest_version": 2,
     "name": "Lichess enhancement",
-    "version": "1.0",
+    "version": "1.5",
   
     "description": "New styles of pieces and boards for Lichess",
     "homepage_url": "https://github.com/ducksper/lichess_enhancement",
