@@ -1,3 +1,8 @@
+'''
+This script allows you to download pieces and boards from chess.com
+One by one
+'''
+
 import re
 import urllib.request
 import os
@@ -6,7 +11,7 @@ import os
 
 regex = r"https?://[^\s<>\"');()]+"
 
-#string from tchés.koum id="board-styles-vs-personalities"
+#string from chessDOTcom id="board-styles-vs-personalities"
 test_str = ("@-moz-document domain(\"lichess.org\")\n"
 	"{\n\n"
 	"  piece.pawn.black\n"
