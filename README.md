@@ -18,5 +18,5 @@
 ! The extension can reduce fps in bullet/ultrabullet
 ```
 
-##Manual installation
+## Manual installation
 On Chrome: After downloading the file, you go in the extension section, and you activate developer mode. Then you import the folder by clicking on "install unpacked extension chrome". You can watch the manual installation process in this video for chrome (windows): https://www.youtube.com/watch?v=SffjcBh520w <br/>
