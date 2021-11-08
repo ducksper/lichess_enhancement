@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Lichess enhancement",
   "version": "2",
   "description": "New styles of pieces and boards for Lichess",
@@ -27,19 +27,25 @@
     }
   ],
   "background": {
-    "service_worker": "background.js"
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
   },
-  "action": {
+  "browser_action": {
     "default_icon": "ressources/logo/chesscom_pawn.png",
     "default_title": "Lichess enhancement",
     "default_popup": "index.html"
   },
   "web_accessible_resources": [
-    {
-      "resources": [
-        "ressources/*"
-      ],
-      "matches": ["<all_urls>"]
+    "ressources/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ducksper@gmail.com"
+    },
+    "edge": {
+      "browser_action_next_to_addressbar": false
     }
-  ]
+  }
 }
