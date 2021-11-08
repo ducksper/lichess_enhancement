@@ -1,47 +1,45 @@
 {
-
-    "manifest_version": 3,
-    "name": "Lichess enhancement",
-    "version": "2",
-  
-    "description": "New styles of pieces and boards for Lichess",
-    "homepage_url": "https://github.com/ducksper/lichess_enhancement",
-    "icons": {
-      "48": "ressources/logo/chesscom_pawn.png"
-    },
-
-    "permissions": [
-        "activeTab",
-        "storage"
-    ],
-  
-    "content_scripts": [
-      {
-        "matches": ["*://*.lichess.org/*"],
-        "js": [
-          "main.js",
-          "ressources/js/arrive.js",
-          "ressources/js/Boards.js",
-          "ressources/js/Pieces.js"
-        ],
-        "run_at": "document_end",
-        "all_frames": true
-      }
-    ],
-
-    "background": {
-      "scripts": ["background.js"],
-      "persistent": true
-    },
-
-    "browser_action": {
-        "default_icon": "ressources/logo/chesscom_pawn.png",
-        "default_title": "Lichess enhancement",
-        "default_popup": "index.html"
-    },
-
-    "web_accessible_resources": [
-      "ressources/*"
-    ]
-  
+  "manifest_version": 3,
+  "name": "Lichess enhancement",
+  "version": "2",
+  "description": "New styles of pieces and boards for Lichess",
+  "homepage_url": "https://github.com/ducksper/lichess_enhancement",
+  "icons": {
+    "48": "ressources/logo/chesscom_pawn.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.lichess.org/*"
+      ],
+      "js": [
+        "main.js",
+        "ressources/js/arrive.js",
+        "ressources/js/Boards.js",
+        "ressources/js/Pieces.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": "ressources/logo/chesscom_pawn.png",
+    "default_title": "Lichess enhancement",
+    "default_popup": "index.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "ressources/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
