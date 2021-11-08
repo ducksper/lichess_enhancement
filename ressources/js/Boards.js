@@ -32,7 +32,7 @@ var Boards = {
         //style_name = this.fromIDtoNameStyle(style_id)
         style_name = style_id
 
-        var board = chrome.runtime.getURL('ressources/boards/' + style_name + '.png')
+        var board = browser.runtime.getURL('ressources/boards/' + style_name + '.png')
         
         this.replaceBackgroundImage(board)
     }

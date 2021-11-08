@@ -1,6 +1,6 @@
 //Set up default values in storage during installation
-chrome.runtime.onInstalled.addListener(function() {
-    chrome.storage.sync.set({
+browser.runtime.onInstalled.addListener(function() {
+    browser.storage.sync.set({
         'pieces': 'neo',
         'board': 'green',
         'desactivateGhostsCustomStyle': false
@@ -10,7 +10,7 @@ chrome.runtime.onInstalled.addListener(function() {
 })
 
 //Block audio files from network
-/*chrome.webRequest.onBeforeRequest.addListener(
+/*browser.webRequest.onBeforeRequest.addListener(
     function() {
         return {cancel: true};
     },
