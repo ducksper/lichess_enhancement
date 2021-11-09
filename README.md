@@ -1,6 +1,6 @@
 <h1 align="center">
 
-![Lichess enhancement logo_white](ressources/logo/lichess_chess_logo_white.png)
+![Lichess enhancement logo_background](ressources/logo/lichess_chess_logo-bg.jpg)
 
 </h1>
 
