@@ -1,6 +1,6 @@
 <h1 align="center">
 
-![Lichess enhancement logo_background](ressources/logo/lichess_chess_logo-bg.jpg)
+![Lichess enhancement logo](https://ducksper.github.io/img/lichess_logo_better.png)
 
 </h1>
 
