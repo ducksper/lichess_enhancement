@@ -38,6 +38,16 @@ tournament
 vintage
 wood
 
+**Maurizio Monge** https://poisson.phc.dm.unipi.it/~monge/chess_art.php
+Celtic
+Fantasy
+Fantasy Alt
+Spatial
+SKulls
+Prmi
+Eyes
+Freak
+
 **u/Paradile13** https://www.reddit.com/user/Paradile13/
 Doge
 

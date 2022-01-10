@@ -9,7 +9,7 @@ body {
 
 .list {
     display: grid;
-    grid-template-columns: auto 300px 200px 200px 10px 300px 10px 300px 200px auto;
+    grid-template-columns: auto 300px 200px 200px 10px 300px 10px 300px 10px 300px 200px auto;
 }
 
 .logo_chesscom {
@@ -44,6 +44,14 @@ body {
     align-items: center;
 }
 
+.list_p_maurizio {
+    border-radius: 5px;
+    grid-column: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .list_p_chess {
     border-radius: 5px;
     grid-column: 2;
@@ -72,7 +80,7 @@ body {
 
 .list_p_others {
     border-radius: 5px;
-    grid-column: 8;
+    grid-column: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,10 +88,20 @@ body {
 
 .list_b_others {
     border-radius: 5px;
-    grid-column: 9;
+    grid-column: 11;
 }
 
 .others_title {
+    font-size: 3em;
+    grid-column-start: 10;
+    grid-column-end: 12;
+    grid-row: 1;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.maurizio_title {
     font-size: 3em;
     grid-column-start: 8;
     grid-column-end: 10;
