@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 4,
   "name": "Lichess enhancement",
   "version": "3",
   "description": "New styles of pieces and boards for Lichess",
