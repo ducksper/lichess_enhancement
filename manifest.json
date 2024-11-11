@@ -8,14 +8,16 @@
     "48": "ressources/logo/chesscom_pawn.png"
   },
   "permissions": [
+    "scripting",
     "activeTab",
-    "storage"
+    "storage",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
   ],
+  "host_permissions": ["*://*.lichess.org/*", "*://*.lichess1.org/*"],
   "content_scripts": [
     {
-      "matches": [
-        "*://*.lichess.org/*"
-      ],
+      "matches": ["*://*.lichess.org/*", "*://*.lichess1.org/*"],
       "js": [
         "main.js",
         "ressources/js/arrive.js",
@@ -29,6 +31,67 @@
   "background": {
     "service_worker": "background.js"
   },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "none",
+        "enabled": true,
+        "path": "ressources/sound_rulesets/none.json"
+      },
+      {
+        "id": "chessdotcomdefault",
+        "enabled": false,
+        "path": "ressources/sound_rulesets/chessdotcomdefault.json"
+      },
+      {
+        "id": "marble",
+        "enabled": false,
+        "path": "ressources/sound_rulesets/marble.json"
+      },
+      {
+        "id": "beat",
+        "enabled": false,
+        "path": "ressources/sound_rulesets/beat.json"
+      },
+      {
+        "id": "lolz",
+        "enabled": false,
+        "path": "ressources/sound_rulesets/lolz.json"
+      },
+      {
+        "id": "metal",
+        "enabled": false,
+        "path": "ressources/sound_rulesets/metal.json"
+      },
+      {
+        "id": "nature",
+        "enabled": false,
+        "path": "ressources/sound_rulesets/nature.json"
+      },
+      {
+        "id": "newspaper",
+        "enabled": false,
+        "path": "ressources/sound_rulesets/newspaper.json"
+      },
+
+      {
+        "id": "pebbles",
+        "enabled": false,
+        "path": "ressources/sound_rulesets/pebbles.json"
+      },
+
+      {
+        "id": "silly",
+        "enabled": false,
+        "path": "ressources/sound_rulesets/silly.json"
+      },
+      {
+        "id": "space",
+        "enabled": false,
+        "path": "ressources/sound_rulesets/space.json"
+      }
+    ]
+  },
   "action": {
     "default_icon": "ressources/logo/chesscom_pawn.png",
     "default_title": "Lichess enhancement",
@@ -36,9 +99,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": [
-        "ressources/*"
-      ],
+      "resources": ["ressources/*"],
       "matches": ["<all_urls>"]
     }
   ]

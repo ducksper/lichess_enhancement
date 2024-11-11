@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/ressources/sounds/silly/move.mp3"
+      }
+    },
+    "condition": {
+      "urlFilter": "https://lichess1.org/assets/______1/sound/standard/Move.mp3",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/ressources/sounds/silly/check.mp3"
+      }
+    },
+    "condition": {
+      "urlFilter": "https://lichess1.org/assets/______1/sound/standard/Check.mp3",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/ressources/sounds/silly/capture.mp3"
+      }
+    },
+    "condition": {
+      "urlFilter": "https://lichess1.org/assets/______1/sound/standard/Capture.mp3",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  }
+]

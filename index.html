@@ -1,146 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lichess enhancement</title>
-</head>
-<body>
+  </head>
+  <body>
     <center>
-        <h1><img src='ressources/logo/lichess_chess_logo.png' width="300"/></h1>
-        <div style="font-size: 1.3em;font-style:italic">Unofficial lichess enhancement / <a href="#" class="github">Github</a></div>
+      <h1><img src="ressources/logo/lichess_chess_logo.png" width="300" /></h1>
+      <div style="font-size: 1.3em; font-style: italic">
+        Unofficial lichess enhancement / <a href="#" class="github">Github</a>
+      </div>
 
-        <p style="color: #AB442F">The extension can reduce fps in bullet/ultrabullet</p>
+      <p style="color: #ab442f">
+        The extension can reduce fps in bullet/ultrabullet
+      </p>
 
-        <div><a href='#' class="preview">Open pieces/boards preview</a></div>
+      <div><a href="#" class="preview">Open pieces/boards preview</a></div>
 
-        <br />
+      <br />
 
-        <!--<label for="desactivateGhostsCustomStyle">Desactivate custom style for ghost pieces (better for performance)</label>
+      <!--<label for="desactivateGhostsCustomStyle">Desactivate custom style for ghost pieces (better for performance)</label>
         <input type="checkbox" id="desactivateGhostsCustomStyle">
 
         <br /><br />-->
 
-        <label for="pieces_select">Pieces:</label>
-        <select name="pieces" id="pieces_select">
-            <option value="none_pieces">Default Lichess pieces</option>
-            <option value="none_pieces">-------CHESSCOM-------</option>
-            <option value="8_bit">8 Bits</option>
-            <option value="alpha">Alpha</option>
-            <option value="bases">Bases</option>
-            <option value="book">Book</option>
-            <option value="bubblegum">Bubblegum</option>
-            <option value="cases">Cases</option>
-            <option value="classic">Classic</option>
-            <option value="club">Club</option>
-            <option value="condal">Condal</option>
-            <option value="dash">Dash</option>
-            <option value="game_room">Game room</option>
-            <option value="glass">Glass</option>
-            <option value="gothic">Gothic</option>
-            <option value="graffiti">Graffiti</option>
-            <option value="icy_sea">Icy Sea</option>
-            <option value="light">Light</option>
-            <option value="lolz">Lolz</option>
-            <option value="marble">Marble</option>
-            <option value="maya">Maya</option>
-            <option value="metal">Metal</option>
-            <option value="modern">Modern</option>
-            <option value="nature">Nature</option>
-            <option value="neon">Neon</option>
-            <option value="neo">Neo</option>
-            <option value="neo_wood">Neo-Wood</option>
-            <option value="newspaper">Newspaper</option>
-            <option value="ocean">Ocean</option>
-            <option value="sky">Sky</option>
-            <option value="space">Space</option>
-            <option value="tigers">Tigers</option>
-            <option value="tournament">Tournament</option>
-            <option value="vintage">Vintage</option>
-            <option value="wood">Wood</option>
-            <option value="3d_wood">3D - Wood</option>
-            <option value="3d_staunton">3D - Staunton</option>
-            <option value="3d_plastic">3D - Plastic</option>
-            <option value="3d_chesskid">3D - Chesskid</option>
-            <option value="none_pieces">---CHESSFACTORY---</option>
-            <option value="iowa">Iowa</option>
-            <option value="falcon">Falcon</option>
-            <option value="oslo">Oslo</option>
-            <option value="chicago">Chicago</option>
-            <option value="none_pieces">---Maurizio Monge---</option>
-            <option value="Celtic">Celtic</option>
-            <option value="Eyes">Eyes</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Fantasy_Alt">Fantasy Alt</option>
-            <option value="freak">Freak</option>
-            <option value="prmi">Prmi</option>
-            <option value="skulls">SKulls</option>
-            <option value="spatial">Spatial</option>
-            <option value="none_pieces">---------OTHERS---------</option>
-            <option value="amogus_1">Amogus_1</option>
-            <option value="amogus_2">Amogus_2</option>
-            <option value="doge">Doge</option>
-            <option value="christmas">Christmas</option>
-            <option value="royale">Royale</option>
-            <option value="random">random</option>
-            <option value="wehrmacht_soviet">Wehrmacht vs Soviet Union</option>
-            <option value="pony">Pony</option>
-            <option value="penguin">Penguin</option>
-            <option value="sea">Sea</option>
-            <option value="nyc">New York City</option>
-            <option value="chessvision">Chess vision</option>
-        </select>
-        
-        <br/><br/>
+      <label for="pieces_select">Pieces:</label>
+      <select name="pieces" id="pieces_select">
+        <option value="none_pieces">Default Lichess pieces</option>
+        <option value="none_pieces">-------CHESSCOM-------</option>
+        <option value="8_bit">8 Bits</option>
+        <option value="alpha">Alpha</option>
+        <option value="bases">Bases</option>
+        <option value="book">Book</option>
+        <option value="bubblegum">Bubblegum</option>
+        <option value="cases">Cases</option>
+        <option value="classic">Classic</option>
+        <option value="club">Club</option>
+        <option value="condal">Condal</option>
+        <option value="dash">Dash</option>
+        <option value="game_room">Game room</option>
+        <option value="glass">Glass</option>
+        <option value="gothic">Gothic</option>
+        <option value="graffiti">Graffiti</option>
+        <option value="icy_sea">Icy Sea</option>
+        <option value="light">Light</option>
+        <option value="lolz">Lolz</option>
+        <option value="marble">Marble</option>
+        <option value="maya">Maya</option>
+        <option value="metal">Metal</option>
+        <option value="modern">Modern</option>
+        <option value="nature">Nature</option>
+        <option value="neon">Neon</option>
+        <option value="neo">Neo</option>
+        <option value="neo_wood">Neo-Wood</option>
+        <option value="newspaper">Newspaper</option>
+        <option value="ocean">Ocean</option>
+        <option value="sky">Sky</option>
+        <option value="space">Space</option>
+        <option value="tigers">Tigers</option>
+        <option value="tournament">Tournament</option>
+        <option value="vintage">Vintage</option>
+        <option value="wood">Wood</option>
+        <option value="3d_wood">3D - Wood</option>
+        <option value="3d_staunton">3D - Staunton</option>
+        <option value="3d_plastic">3D - Plastic</option>
+        <option value="3d_chesskid">3D - Chesskid</option>
+        <option value="none_pieces">---CHESSFACTORY---</option>
+        <option value="iowa">Iowa</option>
+        <option value="falcon">Falcon</option>
+        <option value="oslo">Oslo</option>
+        <option value="chicago">Chicago</option>
+        <option value="none_pieces">---Maurizio Monge---</option>
+        <option value="Celtic">Celtic</option>
+        <option value="Eyes">Eyes</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Fantasy_Alt">Fantasy Alt</option>
+        <option value="freak">Freak</option>
+        <option value="prmi">Prmi</option>
+        <option value="skulls">SKulls</option>
+        <option value="spatial">Spatial</option>
+        <option value="none_pieces">---------OTHERS---------</option>
+        <option value="amogus_1">Amogus_1</option>
+        <option value="amogus_2">Amogus_2</option>
+        <option value="doge">Doge</option>
+        <option value="christmas">Christmas</option>
+        <option value="royale">Royale</option>
+        <option value="random">random</option>
+        <option value="wehrmacht_soviet">Wehrmacht vs Soviet Union</option>
+        <option value="pony">Pony</option>
+        <option value="penguin">Penguin</option>
+        <option value="sea">Sea</option>
+        <option value="nyc">New York City</option>
+        <option value="chessvision">Chess vision</option>
+      </select>
 
-        <label for="board_select">Board:</label>
-        <select name="board" id="board_select">
-            <option value="none_board">Default Lichess board</option>
-            <option value="none_board">-------CHESSCOM-------</option>
-            <option value="8_bit">8 Bits</option>
-            <option value="bases">Bases</option>
-            <option value="blue">Blue</option>
-            <option value="brown">Brown</option>
-            <option value="bubblegum">Bubblegum</option>
-            <option value="burled_wood">Burled Wood</option>
-            <option value="dark_wood">Dark Wood</option>
-            <option value="dash">Dash</option>
-            <option value="glass">Glass</option>
-            <option value="graffiti">Graffiti</option>
-            <option value="green">Green</option>
-            <option value="icy_sea">Icy Sea</option>
-            <option value="light">Light</option>
-            <option value="lolz">Lolz</option>
-            <option value="marble">Marble</option>
-            <option value="metal">Metal</option>
-            <option value="neon">Neon</option>
-            <option value="newpaper">Newpaper</option>
-            <option value="orange">Orange</option>
-            <option value="overlay">Overlay</option>
-            <option value="parchment">Parchment</option>
-            <option value="purple">Purple</option>
-            <option value="red">Red</option>
-            <option value="sand">Sand</option>
-            <option value="sky">Sky</option>
-            <option value="stone">Stone</option>
-            <option value="tan">Tan</option>
-            <option value="tournament">Tournament</option>
-            <option value="translucent">Translucent</option>
-            <option value="walnut">Walnut</option>
-            <option value="none_board">---------OTHERS---------</option>
-            <option value="christmas">Christmas</option>
-            <option value="christmas_alt">Christmas Alt</option>
-            <option value="sea">Sea</option>
-        </select>
+      <br /><br />
 
+      <label for="board_select">Board:</label>
+      <select name="board" id="board_select">
+        <option value="none_board">Default Lichess board</option>
+        <option value="none_board">-------CHESSCOM-------</option>
+        <option value="8_bit">8 Bits</option>
+        <option value="bases">Bases</option>
+        <option value="blue">Blue</option>
+        <option value="brown">Brown</option>
+        <option value="bubblegum">Bubblegum</option>
+        <option value="burled_wood">Burled Wood</option>
+        <option value="dark_wood">Dark Wood</option>
+        <option value="dash">Dash</option>
+        <option value="glass">Glass</option>
+        <option value="graffiti">Graffiti</option>
+        <option value="green">Green</option>
+        <option value="icy_sea">Icy Sea</option>
+        <option value="light">Light</option>
+        <option value="lolz">Lolz</option>
+        <option value="marble">Marble</option>
+        <option value="metal">Metal</option>
+        <option value="neon">Neon</option>
+        <option value="newpaper">Newpaper</option>
+        <option value="orange">Orange</option>
+        <option value="overlay">Overlay</option>
+        <option value="parchment">Parchment</option>
+        <option value="purple">Purple</option>
+        <option value="red">Red</option>
+        <option value="sand">Sand</option>
+        <option value="sky">Sky</option>
+        <option value="stone">Stone</option>
+        <option value="tan">Tan</option>
+        <option value="tournament">Tournament</option>
+        <option value="translucent">Translucent</option>
+        <option value="walnut">Walnut</option>
+        <option value="none_board">---------OTHERS---------</option>
+        <option value="christmas">Christmas</option>
+        <option value="christmas_alt">Christmas Alt</option>
+        <option value="sea">Sea</option>
+      </select>
+      <br /><br />
+
+      <label for="sounds_select">Sounds:</label>
+      <select name="sounds" id="sounds_select">
+        <option value="none">Default Lichess sounds</option>
+        <option value="none">-------CHESSCOM-------</option>
+        <option value="chessdotcomdefault">Chess.com default</option>
+        <option value="marble">Marble</option>
+        <option value="beat">Beat</option>
+        <option value="lolz">Lolz</option>
+        <option value="metal">Metal</option>
+        <option value="nature">Nature</option>
+        <option value="newspaper">Newspaper</option>
+        <option value="pebbles">Pebbles</option>
+        <option value="silly">Silly</option>
+        <option value="space">Space</option>
+      </select>
+      <br /><br />
     </center>
     <footer>
-        <script src="ressources/js/preview.js"></script>
-        <!--<script src="ressources/js/desactivateGhostsCustomStyle.js"></script>-->
-        <script src='ressources/js/updatePieces.js'></script>
-        <script src='ressources/js/updateBoard.js'></script>
-        <script src='ressources/js/Pieces.js'></script>
-        <script src='ressources/js/Boards.js'></script>
+      <script src="ressources/js/preview.js"></script>
+      <!--<script src="ressources/js/desactivateGhostsCustomStyle.js"></script>-->
+      <script src="ressources/js/updatePieces.js"></script>
+      <script src="ressources/js/updateBoard.js"></script>
+      <script src="ressources/js/updateSound.js"></script>
+      <script src="ressources/js/Pieces.js"></script>
+      <script src="ressources/js/Boards.js"></script>
     </footer>
-</body>
+  </body>
 </html>
