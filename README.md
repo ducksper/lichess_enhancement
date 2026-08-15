@@ -19,13 +19,13 @@ Everything is configured from the extension popup and applies immediately to the
 
 ### Chrome / Edge / Brave
 
-Install it unpacked from this repository:
+Install from the [Chrome Web Store](https://chromewebstore.google.com/detail/lichess-enhancement/ikmpcihcohdjammgkopfgohojdelmfoi) — the listing is maintained from this repository.
+
+Store review can make the listing lag a few days behind this repo. To run the latest version right away, install it unpacked:
 
 1. Download the repo (**Code → Download ZIP**) and unzip it, or `git clone` it.
 2. Open `chrome://extensions` and enable **Developer mode** (top right).
 3. Click **Load unpacked** and select the extension folder.
-
-> The [Chrome Web Store listing](https://chrome.google.com/webstore/detail/lichess-enhancement/ikmpcihcohdjammgkopfgohojdelmfoi) belongs to the original author and still ships version 4 (2022): it predates the sound feature and several important fixes. Prefer the manual installation above until a new version is published.
 
 ### Firefox (140+, experimental)
 
