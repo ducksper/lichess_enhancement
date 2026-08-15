@@ -14,6 +14,13 @@
 
       <div><a href="#" class="preview">Open pieces/boards preview</a></div>
 
+      <div id="permissions_banner" style="display: none; margin-top: 12px">
+        <p style="color: #ab442f; margin: 0 0 6px">
+          The extension needs access to lichess.org to work.
+        </p>
+        <button id="grant_permissions">Grant access to lichess.org</button>
+      </div>
+
       <br />
 
       <label for="pieces_select">Pieces:</label>
@@ -154,6 +161,7 @@
       <br /><br />
     </center>
     <footer>
+      <script src="ressources/js/permissions.js"></script>
       <script src="ressources/js/preview.js"></script>
       <script src="ressources/js/updatePieces.js"></script>
       <script src="ressources/js/updateBoard.js"></script>

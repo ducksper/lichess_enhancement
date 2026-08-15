@@ -1,6 +1,8 @@
 //THE BOARD TEXTURE LIVES ON cg-board::before IN LICHESS'S CSS; A STYLESHEET RULE
 //COVERS BOARDS CREATED LATER TOO, SO NO DOM OBSERVATION IS NEEDED
 
+var extApi = typeof browser !== 'undefined' ? browser : chrome;
+
 var Boards = {
   sheet: function () {
     let style = document.getElementById('lichess-enhancement-board');
@@ -13,7 +15,7 @@ var Boards = {
   },
 
   chooseStyleAndApply: function (styleName) {
-    const url = chrome.runtime.getURL(`ressources/boards/${styleName}.png`);
+    const url = extApi.runtime.getURL(`ressources/boards/${styleName}.webp`);
     //!important so the rule survives conflicts with other lichess-theming extensions
     this.sheet().textContent = `#main-wrap cg-board::before { background-image: url("${url}") !important; }`;
   },

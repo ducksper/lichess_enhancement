@@ -17,6 +17,8 @@ Everything is configured from the extension popup and applies immediately to the
 
 ## Installation
 
+### Chrome / Edge / Brave
+
 Install it unpacked from this repository:
 
 1. Download the repo (**Code → Download ZIP**) and unzip it, or `git clone` it.
@@ -25,7 +27,9 @@ Install it unpacked from this repository:
 
 > The [Chrome Web Store listing](https://chrome.google.com/webstore/detail/lichess-enhancement/ikmpcihcohdjammgkopfgohojdelmfoi) belongs to the original author and still ships version 4 (2022): it predates the sound feature and several important fixes. Prefer the manual installation above until a new version is published.
 
-Firefox is not supported yet — see [issue #2](https://github.com/basedpolymer/lichess_enhancement/issues/2) (MV3 `background.service_worker`, promise-based `chrome.*` calls and `world: "MAIN"` script injection all need Firefox-specific handling).
+### Firefox (140+, experimental)
+
+The manifest and code are cross-browser since v4.2.0. The extension is not signed on AMO yet, so load it temporarily: open `about:debugging` → **This Firefox** → **Load Temporary Add-on** and pick `manifest.json`. Firefox treats host permissions as opt-in: open the popup and click **Grant access to lichess.org** the first time (the banner only appears while access is missing). See [issue #2](https://github.com/basedpolymer/lichess_enhancement/issues/2) for the AMO signing status.
 
 ## How it works
 
@@ -34,7 +38,7 @@ Firefox is not supported yet — see [issue #2](https://github.com/basedpolymer/
 
 ## Contributing
 
-Bug reports and new sets are welcome — open an [issue](https://github.com/basedpolymer/lichess_enhancement/issues) or a pull request. To add a piece set, drop 12 files named `bb, bk, bn, bp, bq, br, wb, wk, wn, wp, wq, wr` (`.png`) in `ressources/pieces/<set_name>/` (lowercase folder name), then add the matching `<option>` in `index.html` and a row in `ressources/preview/index.html`. `scripts/downloadStylesFromChesscom.py` can help fetching chess.com styles.
+Bug reports and new sets are welcome — open an [issue](https://github.com/basedpolymer/lichess_enhancement/issues) or a pull request. To add a piece set, drop 12 files named `bb, bk, bn, bp, bq, br, wb, wk, wn, wp, wq, wr` (`.webp`) in `ressources/pieces/<set_name>/` (lowercase folder name), then add the matching `<option>` in `index.html` and a row in `ressources/preview/index.html`. Convert a PNG losslessly with `ffmpeg -i wq.png -c:v libwebp -lossless 1 wq.webp`. `scripts/downloadStylesFromChesscom.py` can help fetching chess.com styles.
 
 ## Credits & legal
 

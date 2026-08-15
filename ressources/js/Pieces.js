@@ -1,6 +1,9 @@
 //PIECES ARE STYLED WITH A SINGLE STYLESHEET: THE RULES AUTOMATICALLY COVER PIECES
 //CREATED LATER (MOVES, NEW GAMES, SPA NAVIGATION), SO NO DOM OBSERVATION IS NEEDED
 
+//browser (Firefox, promise-native) or chrome (Chromium); var: content scripts share one scope
+var extApi = typeof browser !== 'undefined' ? browser : chrome;
+
 const PIECE_NAMES = { p: 'pawn', r: 'rook', n: 'knight', b: 'bishop', q: 'queen', k: 'king' };
 
 const Pieces = {
@@ -15,14 +18,14 @@ const Pieces = {
   },
 
   chooseStyleAndApply(styleName) {
-    const ext = styleName === 'random' ? '.gif' : '.png';
+    const ext = styleName === 'random' ? '.gif' : '.webp';
     const rules = [];
     [
       ['w', 'white'],
       ['b', 'black'],
     ].forEach(([letter, color]) => {
       Object.keys(PIECE_NAMES).forEach((piece) => {
-        const url = chrome.runtime.getURL(
+        const url = extApi.runtime.getURL(
           `ressources/pieces/${styleName}/${letter}${piece}${ext}`
         );
         //!important so the rule beats lichess's own piece styles everywhere

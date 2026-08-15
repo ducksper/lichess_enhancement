@@ -1,11 +1,13 @@
 {
   "manifest_version": 3,
   "name": "Lichess enhancement",
-  "version": "4.1.0",
+  "version": "4.2.0",
+  "minimum_chrome_version": "121",
   "description": "New pieces, boards and sounds for Lichess",
   "homepage_url": "https://github.com/basedpolymer/lichess_enhancement",
   "icons": {
-    "48": "ressources/logo/chesscom_pawn.png"
+    "48": "ressources/logo/icon48.png",
+    "128": "ressources/logo/icon128.png"
   },
   "permissions": ["scripting", "activeTab", "storage", "declarativeNetRequest"],
   "host_permissions": ["*://*.lichess.org/*", "*://*.lichess1.org/*"],
@@ -22,7 +24,17 @@
     }
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "lichess-enhancement@basedpolymer.github.io",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
   },
   "declarative_net_request": {
     "rule_resources": [
@@ -84,7 +96,7 @@
     ]
   },
   "action": {
-    "default_icon": "ressources/logo/chesscom_pawn.png",
+    "default_icon": "ressources/logo/icon48.png",
     "default_title": "Lichess enhancement",
     "default_popup": "index.html"
   },

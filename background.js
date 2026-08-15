@@ -1,3 +1,6 @@
+//browser (Firefox, promise-native) or chrome (Chromium)
+var extApi = typeof browser !== 'undefined' ? browser : chrome;
+
 const DEFAULT_SETTINGS = { pieces: 'neo', board: 'green', sounds: 'chessdotcomdefault' };
 
 //Popup values that shipped with the wrong case (issue #14): map old saved values to the real folder names
@@ -11,28 +14,28 @@ const LEGACY_PIECE_VALUES = {
 //Chrome resets enabled static rulesets to the manifest defaults on every extension update,
 //so re-align them with the user's saved sound choice
 async function syncRulesets() {
-  const data = await chrome.storage.sync.get('sounds');
+  const data = await extApi.storage.sync.get('sounds');
   const sounds = data.sounds || 'none';
-  const enabled = await chrome.declarativeNetRequest.getEnabledRulesets();
-  await chrome.declarativeNetRequest.updateEnabledRulesets({
+  const enabled = await extApi.declarativeNetRequest.getEnabledRulesets();
+  await extApi.declarativeNetRequest.updateEnabledRulesets({
     disableRulesetIds: enabled.filter((id) => id !== sounds),
     enableRulesetIds: [sounds],
   });
 }
 
 async function migrateStoredPieces() {
-  const data = await chrome.storage.sync.get('pieces');
+  const data = await extApi.storage.sync.get('pieces');
   const fixed = LEGACY_PIECE_VALUES[data.pieces];
   if (fixed) {
-    await chrome.storage.sync.set({ pieces: fixed });
+    await extApi.storage.sync.set({ pieces: fixed });
   }
 }
 
-chrome.runtime.onInstalled.addListener(async (details) => {
+extApi.runtime.onInstalled.addListener(async (details) => {
   try {
     //Only seed defaults on first install: an update must never overwrite the user's settings
     if (details.reason === 'install') {
-      await chrome.storage.sync.set(DEFAULT_SETTINGS);
+      await extApi.storage.sync.set(DEFAULT_SETTINGS);
     }
     await migrateStoredPieces();
     await syncRulesets();
@@ -41,14 +44,14 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   }
 });
 
-chrome.runtime.onStartup.addListener(() => {
+extApi.runtime.onStartup.addListener(() => {
   migrateStoredPieces()
     .then(syncRulesets)
     .catch((error) => console.warn('[lichess-enhancement]', error));
 });
 
 //Keep the enabled ruleset aligned when the sound choice arrives from another synced device
-chrome.storage.onChanged.addListener((changes, area) => {
+extApi.storage.onChanged.addListener((changes, area) => {
   if (area === 'sync' && changes.sounds) {
     syncRulesets().catch(() => {});
   }
@@ -78,16 +81,16 @@ function primeLichessSounds() {
   }, 500);
 }
 
-chrome.runtime.onMessage.addListener((request, sender) => {
+extApi.runtime.onMessage.addListener((request, sender) => {
   //From the popup: the sound set changed for the given lichess tab
   if (request && request.sounds_init && request.tab) {
-    chrome.scripting
+    extApi.scripting
       .executeScript({ target: { tabId: request.tab }, world: 'MAIN', func: primeLichessSounds })
       .catch((error) => console.warn('[lichess-enhancement]', error));
   }
   //From the content script: warm the sound cache on page load
   if (request && request.sound_warmup && sender.tab) {
-    chrome.scripting
+    extApi.scripting
       .executeScript({ target: { tabId: sender.tab.id }, world: 'MAIN', func: primeLichessSounds })
       .catch(() => {});
   }
