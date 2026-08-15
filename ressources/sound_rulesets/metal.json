@@ -9,8 +9,11 @@
       }
     },
     "condition": {
-      "urlFilter": "https://lichess1.org/assets/______1/sound/standard/Move.mp3",
-      "resourceTypes": ["xmlhttprequest"]
+      "regexFilter": "^https://lichess1?\\.org/assets/(hashed/Move\\.[0-9a-z]+|([^/]+/)?sound/[^/]+/Move)\\.mp3$",
+      "resourceTypes": [
+        "xmlhttprequest",
+        "media"
+      ]
     }
   },
   {
@@ -19,12 +22,15 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "extensionPath": "/ressources/sounds/metal/check.mp3"
+        "extensionPath": "/ressources/sounds/metal/capture.mp3"
       }
     },
     "condition": {
-      "urlFilter": "https://lichess1.org/assets/______1/sound/standard/Check.mp3",
-      "resourceTypes": ["xmlhttprequest"]
+      "regexFilter": "^https://lichess1?\\.org/assets/(hashed/Capture\\.[0-9a-z]+|([^/]+/)?sound/[^/]+/Capture)\\.mp3$",
+      "resourceTypes": [
+        "xmlhttprequest",
+        "media"
+      ]
     }
   },
   {
@@ -33,12 +39,32 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "extensionPath": "/ressources/sounds/metal/capture.mp3"
+        "extensionPath": "/ressources/sounds/metal/check.mp3"
       }
     },
     "condition": {
-      "urlFilter": "https://lichess1.org/assets/______1/sound/standard/Capture.mp3",
-      "resourceTypes": ["xmlhttprequest"]
+      "regexFilter": "^https://lichess1?\\.org/assets/(hashed/Check\\.[0-9a-z]+|([^/]+/)?sound/[^/]+/Check)\\.mp3$",
+      "resourceTypes": [
+        "xmlhttprequest",
+        "media"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/ressources/sounds/metal/check.mp3"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https://lichess1?\\.org/assets/(hashed/Checkmate\\.[0-9a-z]+|([^/]+/)?sound/[^/]+/Checkmate)\\.mp3$",
+      "resourceTypes": [
+        "xmlhttprequest",
+        "media"
+      ]
     }
   }
 ]

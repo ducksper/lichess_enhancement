@@ -2,25 +2,22 @@ var piece_select = document.getElementById('pieces_select');
 
 //UPDATE <OPTION> WITH VALUE IN STORAGE
 chrome.storage.sync.get('pieces', function (data) {
-  piece_select.value = data['pieces'];
+  if (data.pieces) {
+    piece_select.value = data.pieces;
+  }
 });
 
 //UPDATE STORAGE WITH NEW VALUE AND SEND A SIGNAL TO MAIN SCRIPT
-piece_select.onchange = function (element) {
-  let value = this.value;
+piece_select.onchange = async function () {
+  const value = this.value;
+  try {
+    await chrome.storage.sync.set({ pieces: value });
 
-  chrome.storage.sync.set({ pieces: value }, function () {});
-
-  //Note: sending of pieces_init is useless for main script
-  chrome.tabs.query(
-    {
-      active: true,
-      currentWindow: true,
-    },
-    function (tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {
-        pieces_init: value,
-      });
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (tab && /^https?:\/\/([a-z0-9-]+\.)?lichess1?\.org\//.test(tab.url || '')) {
+      chrome.tabs.sendMessage(tab.id, { pieces_init: value }).catch(function () {});
     }
-  );
+  } catch (error) {
+    console.error(error);
+  }
 };

@@ -6,30 +6,11 @@
       "type": "allow"
     },
     "condition": {
-      "urlFilter": "https://lichess1.org/assets/______1/sound/standard/Move.mp3",
-      "resourceTypes": ["xmlhttprequest"]
-    }
-  },
-  {
-    "id": 2,
-    "priority": 1,
-    "action": {
-      "type": "allow"
-    },
-    "condition": {
-      "urlFilter": "https://lichess1.org/assets/______1/sound/standard/Check.mp3",
-      "resourceTypes": ["xmlhttprequest"]
-    }
-  },
-  {
-    "id": 3,
-    "priority": 1,
-    "action": {
-      "type": "allow"
-    },
-    "condition": {
-      "urlFilter": "https://lichess1.org/assets/______1/sound/standard/Capture.mp3",
-      "resourceTypes": ["xmlhttprequest"]
+      "regexFilter": "^https://lichess1?\\.org/assets/(hashed/(Move|Capture|Check|Checkmate)\\.[0-9a-z]+|([^/]+/)?sound/[^/]+/(Move|Capture|Check|Checkmate))\\.mp3$",
+      "resourceTypes": [
+        "xmlhttprequest",
+        "media"
+      ]
     }
   }
 ]

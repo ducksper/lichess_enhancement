@@ -1,28 +1,21 @@
 {
   "manifest_version": 3,
   "name": "Lichess enhancement",
-  "version": "4",
-  "description": "New styles of pieces and boards for Lichess",
-  "homepage_url": "https://github.com/ducksper/lichess_enhancement",
+  "version": "4.1.0",
+  "description": "New pieces, boards and sounds for Lichess",
+  "homepage_url": "https://github.com/basedpolymer/lichess_enhancement",
   "icons": {
     "48": "ressources/logo/chesscom_pawn.png"
   },
-  "permissions": [
-    "scripting",
-    "activeTab",
-    "storage",
-    "declarativeNetRequest",
-    "declarativeNetRequestFeedback"
-  ],
+  "permissions": ["scripting", "activeTab", "storage", "declarativeNetRequest"],
   "host_permissions": ["*://*.lichess.org/*", "*://*.lichess1.org/*"],
   "content_scripts": [
     {
       "matches": ["*://*.lichess.org/*", "*://*.lichess1.org/*"],
       "js": [
-        "main.js",
-        "ressources/js/arrive.js",
         "ressources/js/Boards.js",
-        "ressources/js/Pieces.js"
+        "ressources/js/Pieces.js",
+        "main.js"
       ],
       "run_at": "document_end",
       "all_frames": true
@@ -73,13 +66,11 @@
         "enabled": false,
         "path": "ressources/sound_rulesets/newspaper.json"
       },
-
       {
         "id": "pebbles",
         "enabled": false,
         "path": "ressources/sound_rulesets/pebbles.json"
       },
-
       {
         "id": "silly",
         "enabled": false,
@@ -99,8 +90,12 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["ressources/*"],
-      "matches": ["<all_urls>"]
+      "resources": [
+        "ressources/pieces/*",
+        "ressources/boards/*",
+        "ressources/sounds/*"
+      ],
+      "matches": ["*://*.lichess.org/*", "*://*.lichess1.org/*"]
     }
   ]
 }

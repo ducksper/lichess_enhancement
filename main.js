@@ -1,71 +1,37 @@
-//FONT
-document.querySelector('html').style.fontfamily =
-  '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif';
+//APPLY THE SAVED PIECES AND BOARD STYLES
 
-//GET PIECES FROM STORAGE
-chrome.storage.sync.get('pieces', function (data) {
-  if (data['pieces'] != 'none_pieces') {
-    Pieces.chooseStyleAndApply(data['pieces']);
-  }
-});
-
-//GET BOARD FROM STORAGE
-chrome.storage.sync.get('board', function (data) {
-  if (data['board'] != 'none_board') {
-    Boards.chooseStyleAndApply(data['board']);
-  }
-});
-
-//PRELOAD THE CHECK SOUND SO IT PLAYS INSTANTLY ON THE FIRST CHECK (e.g. BULLET)
-chrome.storage.sync.get('sounds', function (data) {
-  if (data['sounds'] && data['sounds'] !== 'none') {
-    const checkSound = new Audio(
-      chrome.runtime.getURL('ressources/sounds/' + data['sounds'] + '/check.mp3')
-    );
-    checkSound.volume = 0;
-    checkSound.play().catch(function () {});
-  }
-});
-
-//METTRE A JOUR LES PIECES SI ACTION UTILISATEUR DANS HTML EXTENSION
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  chrome.storage.sync.get('pieces', function (data) {
-    if (data['pieces'] == 'none_pieces') {
-      Pieces.unbindPieces();
+function applyFromStorage() {
+  chrome.storage.sync.get(['pieces', 'board'], function (data) {
+    if (data.pieces && data.pieces !== 'none_pieces') {
+      Pieces.chooseStyleAndApply(data.pieces);
+    } else {
       Pieces.greatReset();
-    } else {
-      Pieces.chooseStyleAndApply(data['pieces']);
     }
-  });
-
-  var board_select = document.getElementById('board_select');
-
-  chrome.storage.sync.get('board', function (data) {
-    if (data['board'] == 'none_board') {
+    if (data.board && data.board !== 'none_board') {
+      Boards.chooseStyleAndApply(data.board);
+    } else {
       Boards.greatReset();
-    } else {
-      Boards.chooseStyleAndApply(data['board']);
     }
   });
+}
+
+applyFromStorage();
+
+//RE-APPLY WHEN THE USER PICKS A NEW STYLE IN THE POPUP
+
+chrome.runtime.onMessage.addListener(function (request) {
+  if (request && (request.pieces_init || request.board_init)) {
+    applyFromStorage();
+  }
 });
 
-/*function ghostActivateState() { 
-    chrome.storage.sync.get('desactivateGhostsCustomStyle', function(data) {
-        if (!data['desactivateGhostsCustomStyle']) {
-            return false
-        } else return true
-    })
-}*/
+//ASK THE BACKGROUND TO PRE-DECODE THE REPLACED SOUNDS IN LICHESS'S SOUND CACHE,
+//OTHERWISE THE FIRST CHECK/CHECKMATE OF A GAME PLAYS LATE (issue #15)
 
-document.addEventListener(
-  'mousedown',
-  function () {
-    chrome.storage.sync.get('pieces', function (data) {
-      if (data['pieces'] != 'none_pieces') {
-        Pieces.chooseStyleAndApply(data['pieces']);
-      }
-    });
-  },
-  false
-);
+if (window.top === window) {
+  chrome.storage.sync.get('sounds', function (data) {
+    if (data.sounds && data.sounds !== 'none') {
+      chrome.runtime.sendMessage({ sound_warmup: true });
+    }
+  });
+}

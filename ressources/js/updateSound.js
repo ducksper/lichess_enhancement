@@ -1,31 +1,28 @@
 var sounds_select = document.getElementById('sounds_select');
 
+//UPDATE <OPTION> WITH VALUE IN STORAGE
 chrome.storage.sync.get('sounds', function (data) {
-  sounds_select.value = data['sounds'];
+  if (data.sounds) {
+    sounds_select.value = data.sounds;
+  }
 });
 
-sounds_select.onchange = async function (element) {
-  let value = this.value;
+//SWAP THE ENABLED RULESET, SAVE, THEN TELL THE BACKGROUND TO FLUSH LICHESS'S SOUND CACHE
+sounds_select.onchange = async function () {
+  const value = this.value;
   try {
-    await chrome.declarativeNetRequest.getEnabledRulesets((rulesets) => {
-      chrome.declarativeNetRequest.updateEnabledRulesets({
-        disableRulesetIds: rulesets,
-        enableRulesetIds: [value],
-      });
+    const enabled = await chrome.declarativeNetRequest.getEnabledRulesets();
+    await chrome.declarativeNetRequest.updateEnabledRulesets({
+      disableRulesetIds: enabled.filter((id) => id !== value),
+      enableRulesetIds: [value],
     });
-    await chrome.storage.sync.set({ sounds: value }, function () {});
+    await chrome.storage.sync.set({ sounds: value });
 
-    const tabs = await chrome.tabs.query({
-      active: true,
-      currentWindow: true,
-    });
-    const currentTab = tabs[0];
-
-    chrome.runtime.sendMessage({
-      sounds_init: value,
-      tab: currentTab.id,
-    });
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (tab && /^https?:\/\/([a-z0-9-]+\.)?lichess1?\.org\//.test(tab.url || '')) {
+      chrome.runtime.sendMessage({ sounds_init: value, tab: tab.id }).catch(() => {});
+    }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };

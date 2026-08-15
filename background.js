@@ -1,44 +1,94 @@
-//Set up default values in storage during installation
-chrome.runtime.onInstalled.addListener(function () {
-  chrome.storage.sync.set(
-    {
-      pieces: 'neo',
-      board: 'green',
-      sounds: 'chessdotcomdefault',
-      desactivateGhostsCustomStyle: false,
-    },
-    function () {}
-  );
-});
+const DEFAULT_SETTINGS = { pieces: 'neo', board: 'green', sounds: 'chessdotcomdefault' };
 
-//METTRE A JOUR LES PIECES SI ACTION UTILISATEUR DANS HTML EXTENSION
+//Popup values that shipped with the wrong case (issue #14): map old saved values to the real folder names
+const LEGACY_PIECE_VALUES = {
+  Celtic: 'celtic',
+  Eyes: 'eyes',
+  Fantasy: 'fantasy',
+  Fantasy_Alt: 'fantasy_alt',
+};
 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  if (request.sounds_init) {
-    chrome.scripting.executeScript({
-      target: { tabId: request.tab },
-      world: 'MAIN',
-      func: () => {
-        (function () {
-          this.window.site.sound.sounds.clear();
-        })();
-      },
-    });
+//Chrome resets enabled static rulesets to the manifest defaults on every extension update,
+//so re-align them with the user's saved sound choice
+async function syncRulesets() {
+  const data = await chrome.storage.sync.get('sounds');
+  const sounds = data.sounds || 'none';
+  const enabled = await chrome.declarativeNetRequest.getEnabledRulesets();
+  await chrome.declarativeNetRequest.updateEnabledRulesets({
+    disableRulesetIds: enabled.filter((id) => id !== sounds),
+    enableRulesetIds: [sounds],
+  });
+}
+
+async function migrateStoredPieces() {
+  const data = await chrome.storage.sync.get('pieces');
+  const fixed = LEGACY_PIECE_VALUES[data.pieces];
+  if (fixed) {
+    await chrome.storage.sync.set({ pieces: fixed });
+  }
+}
+
+chrome.runtime.onInstalled.addListener(async (details) => {
+  try {
+    //Only seed defaults on first install: an update must never overwrite the user's settings
+    if (details.reason === 'install') {
+      await chrome.storage.sync.set(DEFAULT_SETTINGS);
+    }
+    await migrateStoredPieces();
+    await syncRulesets();
+  } catch (error) {
+    console.warn('[lichess-enhancement]', error);
   }
 });
-//Block audio files from network
-/*chrome.webRequest.onBeforeRequest.addListener(
-    function() {
-        return {cancel: true};
-    },
-    {
-        urls: ["https://lichess1.org/assets/_Iu1lae/sound/standard/*.ogg"]
-    },
-    ["blocking"]
-);
 
-Permissions:
-        "<all_urls>",
-        "webRequest",
-        "webRequestBlocking"
-*/
+chrome.runtime.onStartup.addListener(() => {
+  migrateStoredPieces()
+    .then(syncRulesets)
+    .catch((error) => console.warn('[lichess-enhancement]', error));
+});
+
+//Keep the enabled ruleset aligned when the sound choice arrives from another synced device
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area === 'sync' && changes.sounds) {
+    syncRulesets().catch(() => {});
+  }
+});
+
+//Runs in lichess's MAIN world: flush the decoded-sound cache (so a new sound set is
+//re-fetched through the new redirect rules) and pre-decode the sounds we replace
+function primeLichessSounds() {
+  let tries = 0;
+  const timer = setInterval(() => {
+    tries += 1;
+    const sound = window.site && window.site.sound;
+    if (sound && typeof sound.load === 'function') {
+      clearInterval(timer);
+      if (sound.sounds && typeof sound.sounds.clear === 'function') {
+        sound.sounds.clear();
+      }
+      ['move', 'capture', 'check', 'checkmate'].forEach((name) => {
+        //load() is async and can reject (no AudioContext, fetch error)
+        try {
+          Promise.resolve(sound.load(name)).catch(() => {});
+        } catch (e) {}
+      });
+    } else if (tries >= 20) {
+      clearInterval(timer);
+    }
+  }, 500);
+}
+
+chrome.runtime.onMessage.addListener((request, sender) => {
+  //From the popup: the sound set changed for the given lichess tab
+  if (request && request.sounds_init && request.tab) {
+    chrome.scripting
+      .executeScript({ target: { tabId: request.tab }, world: 'MAIN', func: primeLichessSounds })
+      .catch((error) => console.warn('[lichess-enhancement]', error));
+  }
+  //From the content script: warm the sound cache on page load
+  if (request && request.sound_warmup && sender.tab) {
+    chrome.scripting
+      .executeScript({ target: { tabId: sender.tab.id }, world: 'MAIN', func: primeLichessSounds })
+      .catch(() => {});
+  }
+});

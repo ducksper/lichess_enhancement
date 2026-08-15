@@ -1,96 +1,41 @@
+//PIECES ARE STYLED WITH A SINGLE STYLESHEET: THE RULES AUTOMATICALLY COVER PIECES
+//CREATED LATER (MOVES, NEW GAMES, SPA NAVIGATION), SO NO DOM OBSERVATION IS NEEDED
+
+const PIECE_NAMES = { p: 'pawn', r: 'rook', n: 'knight', b: 'bishop', q: 'queen', k: 'king' };
+
 const Pieces = {
-  setPieceImages(selector, url) {
-    const pieces = document.querySelectorAll(selector);
-    pieces.forEach((piece) => (piece.style.backgroundImage = `url(${url})`));
+  sheet() {
+    let style = document.getElementById('lichess-enhancement-pieces');
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'lichess-enhancement-pieces';
+      (document.head || document.documentElement).appendChild(style);
+    }
+    return style;
   },
 
-  clearPieceImages(selector) {
-    const pieces = document.querySelectorAll(selector);
-    pieces.forEach((piece) => (piece.style.backgroundImage = null));
-  },
-
-  getUrls(style) {
-    const base = style === 'random' ? '.gif' : '.png';
-    const path = `ressources/pieces/${style}/`;
-    const pieces = ['r', 'n', 'b', 'q', 'k', 'p'];
-    const colors = ['b', 'w'];
-
-    const urls = {};
-    colors.forEach((color) => {
-      pieces.forEach((piece) => {
-        urls[`${color}${piece}`] = chrome.runtime.getURL(
-          path + color + piece + base
+  chooseStyleAndApply(styleName) {
+    const ext = styleName === 'random' ? '.gif' : '.png';
+    const rules = [];
+    [
+      ['w', 'white'],
+      ['b', 'black'],
+    ].forEach(([letter, color]) => {
+      Object.keys(PIECE_NAMES).forEach((piece) => {
+        const url = chrome.runtime.getURL(
+          `ressources/pieces/${styleName}/${letter}${piece}${ext}`
+        );
+        //!important so the rule beats lichess's own piece styles everywhere
+        rules.push(
+          `piece.${color}.${PIECE_NAMES[piece]} { background-image: url("${url}") !important; }`
         );
       });
     });
-    return urls;
-  },
-
-  replaceBackgroundImage(urls) {
-    ['b', 'w'].forEach((color) => {
-      ['r', 'n', 'b', 'q', 'k', 'p'].forEach((piece) => {
-        this.setPieceImages(
-          `piece.${color === 'b' ? 'black' : 'white'}.${
-            piece === 'r'
-              ? 'rook'
-              : piece === 'n'
-              ? 'knight'
-              : piece === 'b'
-              ? 'bishop'
-              : piece === 'q'
-              ? 'queen'
-              : piece === 'k'
-              ? 'king'
-              : 'pawn'
-          }`,
-          urls[`${color}${piece}`]
-        );
-      });
-    });
-  },
-
-  refresh(urls) {
-    ['b', 'w'].forEach((color) => {
-      ['r', 'n', 'b', 'q', 'k', 'p'].forEach((piece) => {
-        const selector = `piece.${color === 'b' ? 'black' : 'white'}.${
-          piece === 'r'
-            ? 'rook'
-            : piece === 'n'
-            ? 'knight'
-            : piece === 'b'
-            ? 'bishop'
-            : piece === 'q'
-            ? 'queen'
-            : piece === 'k'
-            ? 'king'
-            : 'pawn'
-        }`;
-        document.arrive(selector, () => {
-          this.setPieceImages(selector, urls[`${color}${piece}`]);
-        });
-      });
-    });
+    this.sheet().textContent = rules.join('\n');
   },
 
   greatReset() {
-    ['black', 'white'].forEach((color) => {
-      ['rook', 'knight', 'bishop', 'queen', 'king', 'pawn'].forEach((piece) => {
-        this.clearPieceImages(`piece.${color}.${piece}`);
-      });
-    });
-  },
-
-  chooseStyleAndApply(style) {
-    const urls = this.getUrls(style);
-    this.replaceBackgroundImage(urls);
-    this.refresh(urls);
-  },
-
-  unbindPieces() {
-    ['black', 'white'].forEach((color) => {
-      ['pawn', 'bishop', 'knight', 'king', 'queen', 'rook'].forEach((piece) => {
-        document.unbindArrive(`piece.${color}.${piece}`);
-      });
-    });
+    const style = document.getElementById('lichess-enhancement-pieces');
+    if (style) style.remove();
   },
 };
