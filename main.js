@@ -16,6 +16,17 @@ chrome.storage.sync.get('board', function (data) {
   }
 });
 
+//PRELOAD THE CHECK SOUND SO IT PLAYS INSTANTLY ON THE FIRST CHECK (e.g. BULLET)
+chrome.storage.sync.get('sounds', function (data) {
+  if (data['sounds'] && data['sounds'] !== 'none') {
+    const checkSound = new Audio(
+      chrome.runtime.getURL('ressources/sounds/' + data['sounds'] + '/check.mp3')
+    );
+    checkSound.volume = 0;
+    checkSound.play().catch(function () {});
+  }
+});
+
 //METTRE A JOUR LES PIECES SI ACTION UTILISATEUR DANS HTML EXTENSION
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
