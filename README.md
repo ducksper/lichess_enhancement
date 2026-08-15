@@ -29,7 +29,7 @@ Store review can make the listing lag a few days behind this repo. To run the la
 
 ### Firefox (140+, experimental)
 
-The manifest and code are cross-browser since v6.0.0. The extension is not signed on AMO yet, so load it temporarily: open `about:debugging` → **This Firefox** → **Load Temporary Add-on** and pick `manifest.json`. Firefox treats host permissions as opt-in: open the popup and click **Grant access to lichess.org** the first time (the banner only appears while access is missing). See [issue #2](https://github.com/basedpolymer/lichess_enhancement/issues/2) for the AMO signing status.
+The manifest and code are cross-browser since v6.0.0. The extension is not signed on AMO yet, so load it temporarily: open `about:debugging` → **This Firefox** → **Load Temporary Add-on** and pick `manifest.json`. Firefox treats host permissions as opt-in: open the popup and click **Grant access to lichess.org** the first time (the banner only appears while access is missing).
 
 ## How it works
 
