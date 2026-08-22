@@ -27,9 +27,13 @@ Store review can make the listing lag a few days behind this repo. To run the la
 2. Open `chrome://extensions` and enable **Developer mode** (top right).
 3. Click **Load unpacked** and select the extension folder.
 
-### Firefox (140+, experimental)
+### Firefox
 
-The manifest and code are cross-browser since v6.0.0. The extension is not signed on AMO yet, so load it temporarily: open `about:debugging` → **This Firefox** → **Load Temporary Add-on** and pick `manifest.json`. Firefox treats host permissions as opt-in: open the popup and click **Grant access to lichess.org** the first time (the banner only appears while access is missing).
+Install from [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/enhancement-lichess/) — the extension is reviewed and signed by Mozilla. Requires Firefox 140+ (desktop and Android).
+
+Firefox treats host permissions as opt-in: open the popup and click **Grant access to lichess.org** the first time (the banner only appears while access is missing).
+
+AMO review can make the listing lag a few days behind this repo. To run the latest version right away, load it temporarily: open `about:debugging` → **This Firefox** → **Load Temporary Add-on** and pick `manifest.json`.
 
 ## How it works
 
